@@ -1,0 +1,39 @@
+﻿@using ProductSalesTracking.Models.AdoEntity
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<TblCustomer>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<table class="table table-bordered">
+    <h2>Customer List</h2>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>SurName</th>
+        <th>City</th>
+        <th>Balance</th>
+        <th>Delete</th>
+        <th>Update</th>
+    </tr>
+
+    @foreach (var customer in Model)
+    {
+<tr>
+    <td>@customer.id</td>
+    <td>@customer.Name</td>
+    <td>@customer.SurName</td>
+    <td>@customer.City</td>
+    <td>@customer.Balance</td>
+    <td><a href="/Customers/DeleteCustomer/@customer.id" class="btn btn-danger">Delete</a></td>
+    <td><a href="/Customers/CustomerGet/@customer.id" class="btn btn-success">Update </a> </td>
+</tr>
+            }
+       
+    </table>
+@Html.PagedListPager((IPagedList)Model,page=>Url.Action("Index", new {page}))
+
+<a href="/Customers/AddCustomer" class="btn btn-primary"> New Customer</a>
+

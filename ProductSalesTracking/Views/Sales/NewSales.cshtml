@@ -1,0 +1,24 @@
+﻿@model ProductSalesTracking.Models.AdoEntity.TblSales
+@{
+    ViewBag.Title = "NewSales";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<form method="post" class="form-group">
+    <h2>New Sales</h2>
+    <br />
+
+    <label>Product Name</label><br />
+    @Html.DropDownListFor(x => x.TblProduct.id, (List<SelectListItem>)ViewBag.DropProduct, new { @class = "form-control" })<br />
+    <label>Seller</label><br />
+    @Html.DropDownListFor(x => x.TblEmployee.id, (List<SelectListItem>)ViewBag.DropSeller, new { @class = "form-control" })<br />
+    <label>Customer</label><br />
+    @Html.DropDownListFor(x => x.TblCustomer.id, (List<SelectListItem>)ViewBag.DropCustomer, new { @class = "form-control" })<br />
+    <label>Product Price</label><br />
+    @Html.TextBoxFor(x => x.Price, new { @class = "form-control" })<br />
+
+
+
+    <button class="btn btn-primary">Add</button>
+
+</form>
+

@@ -1,0 +1,16 @@
+﻿@model ProductSalesTracking.Models.AdoEntity.TblCategory
+@{
+    ViewBag.Title = "CategoryGet";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+@using (Html.BeginForm("CategoryUpdate", "Category", FormMethod.Post))
+{
+    <h1>Category Get</h1>
+    @Html.HiddenFor(x=>x.id,new {@class="form-control" })
+    <br />
+    @Html.TextBoxFor(x=>x.Name,new {@class="form-control"}) <br />
+    <button class="btn btn-warning">Update</button>
+}
+

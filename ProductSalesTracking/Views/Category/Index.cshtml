@@ -1,0 +1,28 @@
+﻿@using ProductSalesTracking.Models.AdoEntity
+@model List<TblCategory>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<table class="table table-bordered">
+    <h2> Category List</h2>
+    <tr>
+        <th>ID</th>
+        <th>Category Name</th>
+        <th>Delete</th>
+        <th>Updade</th>
+    </tr>
+   @foreach (var category in Model)
+   {
+       <tr>
+           <td>@category.id</td>
+           <td>@category.Name</td>
+           <td><a href="/Category/Delete/@category.id" class="btn btn-danger">Delete</a></td>
+           <td><a href="/Category/CategoryGet/@category.id" class="btn btn-success">Update </a> </td>
+       </tr>
+   }
+</table>
+<a href="/Category/NewCategory" class="btn btn-primary"> New Category</a>
+

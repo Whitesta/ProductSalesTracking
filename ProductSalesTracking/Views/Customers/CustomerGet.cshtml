@@ -1,0 +1,29 @@
+﻿@model ProductSalesTracking.Models.AdoEntity.TblCustomer
+@{
+    ViewBag.Title = "CustomerGet";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@using (Html.BeginForm("CustomerUpdate", "Customers", FormMethod.Post))
+{
+    <h1>Get Customer</h1>
+
+    @Html.HiddenFor(x => x.id, new { @class = "form-control" })
+    <br />
+    <label>Customer Name</label>
+    @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+    <br />
+    <label>Customer SurName</label>
+    @Html.TextBoxFor(x => x.SurName, new { @class = "form-control" })
+    <br />
+    <label>Customer City</label>
+    @Html.TextBoxFor(x => x.City, new { @class = "form-control" })
+    <br />
+    <label>Customer Balance</label>
+    @Html.TextBoxFor(x => x.Balance, new { @class = "form-control" })
+    <br />
+
+
+    <button class="btn btn-warning">Update</button>
+}
+

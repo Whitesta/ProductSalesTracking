@@ -1,0 +1,36 @@
+﻿@using ProductSalesTracking.Models.AdoEntity
+@model List<TblSales>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<table class="table table-bordered">
+   <h2>Sales List</h2>
+    <tr>
+        <th>Id</th>
+        <th>Product</th>
+        <th>Employee</th>
+        <th>Customer</th>
+        <th>Price</th>
+        <th>Date</th>
+    </tr>
+
+    @foreach (var sale in Model)
+    {
+        <tr>
+            <td>@sale.id</td>
+            <td>@sale.TblProduct.Name</td>
+            <td>@sale.TblEmployee.Name @sale.TblEmployee.SurName</td>
+            <td>@sale.TblCustomer.Name @sale.TblCustomer.SurName</td>
+            <td>@sale.Price</td>
+            <td>@sale.Date</td>
+          
+        </tr>
+    }
+
+</table>
+
+
+<a href="/Sales/NewSales" class="btn btn-primary"> New Sale</a>
+

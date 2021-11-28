@@ -1,0 +1,44 @@
+﻿@using ProductSalesTracking.Models.AdoEntity
+@model List<TblProduct>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<h2>Product List</h2>
+
+@using (Html.BeginForm("Index", "Products", FormMethod.Get))
+{
+    <p>
+        Product Name: @Html.TextBox("p")
+        <input type="submit" value="Search" />
+    </p>
+}
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Brand</th>
+        <th>Stock</th>
+        <th>BuyPrice</th>
+        <th>SellPrice</th>
+        <th>Category</th>
+        <th>Delete</th>
+        <th>Update</th>
+    </tr>
+    @foreach (var product in Model)
+    {
+        <tr>
+            <td>@product.id</td>
+            <td>@product.Name</td>
+            <td>@product.Brand</td>
+            <td>@product.Stock</td>
+            <td>@product.BuyPrice</td>
+            <td>@product.SellPrice</td>
+            <td>@product.TblCategory.Name</td>
+            <td><a href="/Products/DeleteProduct/@product.id" class="btn btn-danger">Delete</a></td>
+            <td><a href="/Products/ProductGet/@product.id" class="btn btn-success">Update </a> </td>
+        </tr>
+    }
+</table>
+<a href="/Products/NewProduct" class="btn btn-primary"> New Product</a>

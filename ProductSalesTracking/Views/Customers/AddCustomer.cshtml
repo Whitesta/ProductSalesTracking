@@ -1,0 +1,27 @@
+﻿@model ProductSalesTracking.Models.AdoEntity.TblCustomer
+@{
+    ViewBag.Title = "AddCustomer";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<form method="post" class="form-group">
+    <h2>Add Customer</h2>
+    <br />
+
+    <label>Customer Name</label><br />
+    @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Name, "", new { @style = "color:red" })
+    <br />
+    <label>Customer SurName</label><br />
+    @Html.TextBoxFor(x => x.SurName, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.SurName, "", new { @style = "color:red" })
+    <br />
+    <label>Customer City</label><br />
+    @Html.TextBoxFor(x => x.City, new { @class = "form-control" })<br />
+    <label>Customer Balance</label><br />
+    @Html.TextBoxFor(x => x.Balance, new { @class = "form-control" })<br />
+    <button class="btn btn-primary">Add</button>
+
+</form>
+
+
